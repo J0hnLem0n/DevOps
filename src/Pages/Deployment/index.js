@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-class DevelopmentPage extends Component {
+
+class DeploymentPage extends Component {
     render() {
         return (
             <ReactCSSTransitionGroup transitionName="animate-page"
@@ -10,12 +11,12 @@ class DevelopmentPage extends Component {
                                      transitionLeave={false}
             >
                 <div className="rm-page">
-                    <p className="rm-page__header">Development</p>
-                    <p className="rm-page__text">Development is a leading primary research journal covering the field of developmental biology. With its long and prestigious history and its team of expert academic editors, Development is committed to publishing cutting-edge research across the spectrum of animal and plant developmental biology. Over recent years ...</p>
+                    <p className="rm-page__header">Deployment</p>
+                    <p className="rm-page__text">Software deployment is all of the activities that make a software system available for use. The general deployment process consists of several interrelated activities with possible transitions between them. These activities can occur at the producer side or at the consumer side or both. Because every software system is ...</p>
                 </div>
             </ReactCSSTransitionGroup>
         );
     }
 }
 
-export default DevelopmentPage;
+export default DeploymentPage;

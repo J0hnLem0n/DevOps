@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-class DevelopmentPage extends Component {
+
+class TestingPage extends Component {
     render() {
         return (
             <ReactCSSTransitionGroup transitionName="animate-page"
@@ -10,12 +11,12 @@ class DevelopmentPage extends Component {
                                      transitionLeave={false}
             >
                 <div className="rm-page">
-                    <p className="rm-page__header">Development</p>
-                    <p className="rm-page__text">Development is a leading primary research journal covering the field of developmental biology. With its long and prestigious history and its team of expert academic editors, Development is committed to publishing cutting-edge research across the spectrum of animal and plant developmental biology. Over recent years ...</p>
+                    <p className="rm-page__header">Testing</p>
+                    <p className="rm-page__text">Software testing is an investigation conducted to provide stakeholders with information about the quality of the software product or service under test. Software testing can also provide an objective, independent view of the software to allow the business to appreciate and understand the risks of software implementation.</p>
                 </div>
             </ReactCSSTransitionGroup>
         );
     }
 }
 
-export default DevelopmentPage;
+export default TestingPage;

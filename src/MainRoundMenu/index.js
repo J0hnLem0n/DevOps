@@ -7,10 +7,14 @@ import InfoIcon from '@material-ui/icons/Info';
 import './index.css';
 
 class MainRoundMenu extends Component {
-    state = {
-        transform: 30
-    };
-    getIcon(icon) {
+    constructor(props) {
+        super(props);
+        this.state = {
+            transform: 30,
+            menuItemClassActiveId: 0
+        };
+    }
+    getIcon = (icon) => {
         switch (icon) {
             case 'Code':
                 return <CodeIcon />;
@@ -24,8 +28,13 @@ class MainRoundMenu extends Component {
                 return <InfoIcon />;
         }
     };
+    toggleMenuItemClass() {
+        const currentState = this.state.toggleMenuItemClassActive;
+        this.setState({ toggleMenuItemClassActive: !currentState });
+    };
     getMenuItems() {
-        const { size, iconSize, menuItems } = this.props;
+        const { size, iconSize, menuItems, setPage } = this.props;
+        const { menuItemClassActiveId } = this.state;
         const total = menuItems.length;
         const alpha = Math.PI * 2 / total;
         /**Радиус и смещение*/
@@ -45,9 +54,11 @@ class MainRoundMenu extends Component {
                         width: iconSize+ 'px',
                         height: iconSize+ 'px'
                      }}
-                     className="menuItem"
+                     className={menuItemClassActiveId === index ? "rm-main-menu__item rm-main-menu__item_active" : "rm-main-menu__item"}
                      onClick={()=>{
-                         this.setState({transform: degree})
+                         setPage(item.id);
+                         this.toggleMenuItemClass();
+                         this.setState({transform: degree, menuItemClassActiveId: index})
                      }}
                 >
                     {this.getIcon(item.icon)}<p>{item.title}</p>
@@ -63,15 +74,15 @@ class MainRoundMenu extends Component {
             height: size+'px'
         };
         return (
-            <div style={mainMenuStyle} className="mainMenu">
-                <div className="menuItems">
+            <div style={mainMenuStyle} className="rm-main-menu">
+                <div className="rm-main-menu__items">
                     { this.getMenuItems() }
                 </div>
-                <div style={{transform: `rotate(${this.state.transform}deg)`}} className="lineContainer">
-                    <div className="lineWrapper">
-                        <div className="overWrapper">
-                            <div className="colorLinesLarge">
-                                <div className="colorLinesSmall"></div>
+                <div style={{transform: `rotate(${this.state.transform}deg)`}} className="rm-main-menu__line-container">
+                    <div className="rm-main-menu__line-wrapper">
+                        <div className="rm-main-menu__over-wrapper">
+                            <div className="rm-main-menu__color-lines-large">
+                                <div className="rm-main-menu__color-lines-small" />
                             </div>
                         </div>
                     </div>

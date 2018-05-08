@@ -2,11 +2,20 @@ import React, { Component } from 'react';
 import './App.css';
 import MainRoundMenu from './MainRoundMenu/index'
 import DevelopmentPage from './Pages/Development/index'
+import TestingPage from './Pages/Testing'
+import DeploymentPage from './Pages/Deployment'
+import CommitPage from './Pages/Commit'
 
 class App extends Component {
-    state = {
-        currentPageId: 'Development'
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPageId: 'Development'
+        };
     }
+    setPage = (pageId) => {
+        this.setState({currentPageId: pageId})
+    };
     render() {
         const menuItems = [
             {
@@ -20,7 +29,7 @@ class App extends Component {
                 icon:'Check'
             },
             {
-                id: 'Deployment ',
+                id: 'Deployment',
                 title: 'Deployment ',
                 icon:'Deploy'
             },
@@ -29,16 +38,20 @@ class App extends Component {
                 title: 'Commit',
                 icon:'Commit'
             }
-        ]
+        ];
         return (
             <div className="rm-content">
                 <MainRoundMenu
-                    size = '440'
-                    iconSize = '120'
-                    menuItems = { menuItems }
+                        size = '440'
+                        iconSize = '130'
+                        menuItems = { menuItems }
+                        setPage = {this.setPage}
                 />
                 <div className="rm-content__description">
                     {this.state.currentPageId === 'Development' && <DevelopmentPage />}
+                    {this.state.currentPageId === 'Testing' && <TestingPage />}
+                    {this.state.currentPageId === 'Deployment' && <DeploymentPage />}
+                    {this.state.currentPageId === 'Commit' && <CommitPage />}
                 </div>
             </div>
         );

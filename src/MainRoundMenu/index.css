@@ -1,0 +1,82 @@
+.mainMenu {
+    position: relative;
+}
+.lineContainer {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.8s ease;
+    -moz-transition: all 0.8s ease;
+    -ms-transition: all 0.8s ease;
+    -o-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+}
+.lineWrapper {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+.overWrapper {
+    transform: rotate(120deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 100% 0px;
+    overflow: hidden;
+}
+.colorLinesLarge {
+    position: absolute;
+    width: 436px;
+    height: 436px;
+    border: 2px solid #f26522;
+    border-radius: 50%;
+    box-shadow: inset 0 0 20px rgba(242, 101, 34, 0.1);
+}
+.colorLinesSmall {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 50%;
+    top: 50%;
+    border: 2px solid #f26522;
+    border-radius: 50%;
+    margin: -82px 0 0 -82px;
+    box-shadow: 0 0 10px rgba(242, 101, 34, 0.25);
+}
+.menuItems {
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+.menuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    position: absolute;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.6;
+    text-shadow: 0 0 10px #fff;
+}
+.menuItem:hover {
+    opacity: 1;
+    color: #fff;
+
+    /*Повыбирать тени*/
+    text-shadow: 0 0 10px #fff;
+    /*text-shadow: 0 0 60px rgba(255, 255, 255, 0.8);*/
+
+    -webkit-transition: color 0.8s ease, text-shadow 0.8s ease, opacity 0.8s ease;
+    -moz-transition: color 0.8s ease, text-shadow 0.8s ease, opacity 0.8s ease;
+    -ms-transition: color 0.8s ease, text-shadow 0.8s ease, opacity 0.8s ease;
+    -o-transition: color 0.8s ease, text-shadow 0.8s ease, opacity 0.8s ease;
+    transition: color 0.8s ease, text-shadow 0.8s ease, opacity 0.8s ease;
+
+    opacity: 1;
+    color: #f26522;
+    text-shadow: 0 0 60px #f26522;
+}

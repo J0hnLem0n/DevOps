@@ -8,4 +8,9 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
+
+    &__description {
+        width: 500px;
+        padding-left: 200px;
+     }
 }
